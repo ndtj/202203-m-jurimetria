@@ -26,154 +26,39 @@ knitr::include_graphics("https://abj.org.br/img/conteudo/ml-jurimetria.png")
 
 Esse curso é para pessoas interessadas em desenvolver pesquisas jurimétricas. No momento, a maior dificuldade em realizar pesquisas desse tipo está em acessar e organizar os dados para realizar pesquisas. Por isso, teremos foco em trabalhar pesquisas com diferentes fontes de dados e discutiremos o ferramental necessário para desenvolver soluções.
 
-__Primeiro Bimestre__:
+<center>
 
-- __Aula 01__ (04/03/2022): Aspectos gerais da pesquisa jurimétrica
-    - Metodologia geral de pesquisa científica
-    - Formulação de hipóteses
-    - Fontes de dados
-    - Estudo prospectivo e retrospectivo
-- __Aula 02__ (11/03/2022): Estatística básica
-    - Base de dados arrumada
-    - Tipos de variáveis
-    - Estatísticas de posição
-    - Estatísticas de variabilidade
-    - Probabilidade
-    - Quiz 01
-- __Aula 03__ (18/03/2022): Probabilidade e inferência
-    - O que é probabilidade
-    - O que é inferência estatística
-    - Viés e variância
-    - Amostragem
-    - Quiz 02
-- __Aula 04__ (25/03/2022): Principais resultados da estatística
-    - Lei dos grandes números
-    - Teorema do limite central
-    - Quiz 03
-- __Aula 05__ (18/03/2022): Teste de hipóteses e intervalo de confiança
-    - Teste de hipóteses
-    - Intervalo de confiança
-    - Teste de médias / proporções
-    - Teste de homogeneidade / independência
-    - Quiz 04
-- __Aula 06__ (25/03/2022): Regressão linear
-    - Modelos de regressão
-    - Variável resposta e explicativa
-    - Análise de sobrevivência
-    - Análise de tempos e gargalos em processos
-    - Quiz 05
-- __Aula 07__ (22/04/2022): (extra) exemplo de projeto no R
-    - Reprodução da pesquisa sobre câmaras criminais
-- __Aula 08__ (29/04/2022): Prova 1
+<a href="https://ndtj.github.io/main-m-jurimetria/slides/" style="font-size:40pt;font-face:bold;">Slides</a>
 
-- __Obs__: Dia 15/04/2022 é feriado
+</center>
 
-__Segundo Bimestre__:
+Os slides serão atualizados conforme o curso vai acontecendo.
 
-- __Aula 09__ (06/05/2022): Pesquisa jurimétrica utilizando classificação manual
-    - Amostragem
-    - Formulário de classificação
-    - Controle de inconsistências
-    - Exemplo: observatório
-    - Quiz 06
-- __Aula 10__ (13/05/2022): Pesquisa jurimétrica utilizando dados agregados do judiciário
-    - Justiça em números
-    - Módulo de produtividade mensal
-    - Datajud
-    - Exemplo: litigiosidade e desenvolvimento
-    - Quiz 07
-- __Aula 11__ (20/05/2022): Pesquisa jurimétrica utilizando dados da jurisprudência
-    - Consulta de jurisprudência do TJSP
-    - Análise de tópicos
-    - Exemplo: análise de tópicos
-    - Quiz 08
-- __Aula 12__ (27/05/2022): Pesquisa jurimétrica utilizando diários de justiça
-    - Sobre os diários de justiça
-    - Páginas dos diários
-    - Método de pesquisa por páginas
-    - Exemplo: temas mais discutidos
-    - Quiz 09
-- __Aula 13__ (03/06/2022): Pesquisa jurimétrica com métodos mistos
-    - Survey
-    - Pesquisa documental
-    - Convergência de métodos
-    - Exemplo: bidTrib
-    - Quiz 10
-- __Aula 14__ (10/06/2022): Prova 2
-- __Aula 15__ (17/06/2022): Sub
-- __Aula 16__ (24/06/2022): Tópicos de pesquisa jurimétrica
-    - Pesquisa jurimétrica usando sistemas administrativos e dados do executivo
-    - Pesquisa jurimétrica usando dados de leis
-    - Pesquisa jurimétrica utilizando inteligência artificial
-- __Aula 17__ (01/07/2022): Exame
+Se quiser, tem uma versão em PDF [aqui](https://ndtj.github.io/main-m-jurimetria/slides/index.pdf).
 
-__Prazos internos__:
+## Quiz
 
-- Digitação das notas 1º bim: 05/05/2022
-- Prova 2º bim: 01/06/2022 até 14/06/2022
-- Sub: de 15/06/2022 a 21/06/2022
-- Digitação de notas 2º bim: 23/06/2022
-- Exame: de 27/06 a 01/07/2022
-- Digitação de notas exame: 06/07/2022
+```{r, message=FALSE}
+googlesheets4::gs4_deauth()
+googlesheets4::gs4_auth("julio.trecenti@gmail.com")
+"1aRaPjKO0h3F0S5pdXXT7rAnC66WVC52Mi08cHYlW3xY" |> 
+  googlesheets4::read_sheet() |> 
+  dplyr::filter(tipo == "aula", !link_quiz %in% "-") |> 
+  dplyr::transmute(
+    id = 1:(dplyr::n()), 
+    aula, bimestre, data, titulo, quiz = link_quiz
+  ) |> 
+  tidyr::replace_na(list(quiz = "Em breve")) |> 
+  dplyr::rename_with(stringr::str_to_title) |> 
+  knitr::kable()
+```
 
-na prática, temos 11 aulas "úteis"
 
 ## Informações importantes
 
 - Blog: [https://lab.abj.org.br](https://lab.abj.org.br)
 
 - Fórum: [https://forum.abj.org.br](https://forum.abj.org.br)
-
-## Slides
-
-```{r}
-list_github_files <- function (repo, dir = NULL, pattern = NULL) {
-  req <- httr::GET(paste0(
-    "https://api.github.com/repos/ndtj/", 
-    repo, "/git/trees/main?recursive=1"
-  ))
-  httr::stop_for_status(req)
-  arquivos <- unlist(lapply(httr::content(req)$tree, "[", "path"), use.names = FALSE)
-  if (!is.null(dir)) {
-    arquivos <- grep(dir, arquivos, value = TRUE, fixed = TRUE)
-  }
-  if (!is.null(pattern)) {
-    arquivos <- arquivos[grep(pattern, arquivos)]
-  }
-  return(arquivos)
-}
-
-paths <- list_github_files(main_repo, "slides/", "[0-9]-.*html$")
-
-todos_scripts <- tibble::tibble(
-  slide = paths,
-  link = paste0("https://ndtj.github.io/", main_repo, "/", slide),
-  pdf = stringr::str_replace(paste0("https://ndtj.github.io/", main_repo, "/", slide), "html$", "pdf")
-) |> 
-  dplyr::mutate(
-    link = stringr::str_glue("[{basename(link)}]({link})"),
-    pdf = stringr::str_glue("[{basename(pdf)}]({pdf})"),
-  ) |> 
-  dplyr::filter(!stringr::str_detect(slide, "_files/")) |> 
-  dplyr::transmute(
-    aula = stringr::str_extract(slide, "[0-9]+"),
-    link, pdf
-  )
-
-aulas <- todos_scripts |> 
-  dplyr::filter(aula != "00")
-aulas |> 
-  knitr::kable(col.names = c("Aula", "HTML", "PDF"))
-```
-
-## Instruções
-
-```{r}
-todos_scripts |> 
-  dplyr::filter(aula == "00") |> 
-  dplyr::select(-aula) |> 
-  knitr::kable(col.names = c("HTML", "PDF"))
-```
 
 
 ## Material extra
