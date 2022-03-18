@@ -46,7 +46,8 @@ googlesheets4::gs4_auth("julio.trecenti@gmail.com")
   dplyr::filter(tipo == "aula", !link_quiz %in% "-") |> 
   dplyr::transmute(
     id = 1:(dplyr::n()), 
-    aula, bimestre, data, titulo, quiz = link_quiz
+    aula, bimestre, data, titulo, 
+    quiz = stringr::str_glue("[link]({link_quiz})")
   ) |> 
   tidyr::replace_na(list(quiz = "Em breve")) |> 
   dplyr::rename_with(stringr::str_to_title) |> 

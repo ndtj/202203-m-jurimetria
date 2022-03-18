@@ -24,20 +24,20 @@ Se quiser, tem uma versão em PDF
 
 ## Quiz
 
-|  Id | Aula | Bimestre | Data       | Titulo                                                        | Quiz     |
-|----:|-----:|---------:|:-----------|:--------------------------------------------------------------|:---------|
-|   1 |    1 |        1 | 2022-03-04 | Aspectos gerais da pesquisa jurimétrica                       | Em breve |
-|   2 |    2 |        1 | 2022-03-11 | Estatística básica                                            | Em breve |
-|   3 |    3 |        1 | 2022-03-18 | Introdução à programação em R                                 | Em breve |
-|   4 |    4 |        1 | 2022-03-25 | Pesquisa jurimétrica utilizando dados da jurisprudência       | Em breve |
-|   5 |    5 |        1 | 2022-04-01 | Probabilidade e inferência                                    | Em breve |
-|   6 |    6 |        1 | 2022-04-08 | Pesquisa jurimétrica utilizando classificação manual          | Em breve |
-|   7 |    9 |        2 | 2022-05-06 | Regressão linear                                              | Em breve |
-|   8 |   10 |        2 | 2022-05-13 | Pesquisa jurimétrica utilizando dados agregados do judiciário | Em breve |
-|   9 |   11 |        2 | 2022-05-20 | Modelagem preditiva                                           | Em breve |
-|  10 |   12 |        2 | 2022-05-27 | Pesquisa jurimétrica utilizando diários de justiça            | Em breve |
-|  11 |   13 |        2 | 2022-06-03 | Tópicos de pesquisa jurimétrica                               | Em breve |
-|  12 |   16 |        2 | 2022-06-24 | (extra) exemplo de projeto no R                               | Em breve |
+|  Id | Aula | Bimestre | Data       | Titulo                                                        | Quiz                                          |
+|----:|-----:|---------:|:-----------|:--------------------------------------------------------------|:----------------------------------------------|
+|   1 |    1 |        1 | 2022-03-04 | Aspectos gerais da pesquisa jurimétrica                       | [link](https://forms.office.com/r/k3Y3Q9TNLC) |
+|   2 |    2 |        1 | 2022-03-11 | Estatística básica                                            | [link](NA)                                    |
+|   3 |    3 |        1 | 2022-03-18 | Introdução à programação em R                                 | [link](NA)                                    |
+|   4 |    4 |        1 | 2022-03-25 | Pesquisa jurimétrica utilizando dados da jurisprudência       | [link](NA)                                    |
+|   5 |    5 |        1 | 2022-04-01 | Probabilidade e inferência                                    | [link](NA)                                    |
+|   6 |    6 |        1 | 2022-04-08 | Pesquisa jurimétrica utilizando classificação manual          | [link](NA)                                    |
+|   7 |    9 |        2 | 2022-05-06 | Regressão linear                                              | [link](NA)                                    |
+|   8 |   10 |        2 | 2022-05-13 | Pesquisa jurimétrica utilizando dados agregados do judiciário | [link](NA)                                    |
+|   9 |   11 |        2 | 2022-05-20 | Modelagem preditiva                                           | [link](NA)                                    |
+|  10 |   12 |        2 | 2022-05-27 | Pesquisa jurimétrica utilizando diários de justiça            | [link](NA)                                    |
+|  11 |   13 |        2 | 2022-06-03 | Tópicos de pesquisa jurimétrica                               | [link](NA)                                    |
+|  12 |   16 |        2 | 2022-06-24 | (extra) exemplo de projeto no R                               | [link](NA)                                    |
 
 ## Informações importantes
 
